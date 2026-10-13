@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Makkah Taxi | Our Vehicles</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f1df;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f1d46a;
+            --black: #080808;
+            --dark: #121212;
+            --dark-card: #171717;
+            --green: #0b3d2e;
+            --green-light: #145c43;
+            --cream: #f7f1df;
+            --white: #ffffff;
+            --gray: #aaa;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            height: 75px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.97);
+
+            border-bottom: 1px solid
+            rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 620px;
+            height: 80vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background-image:
+            url("https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1920&auto=format&fit=crop");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+            linear-gradient(
+                rgba(0,0,0,0.82),
+                rgba(0,0,0,0.60)
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+            padding: 30px;
+
+            animation: heroIn 1.2s ease;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            margin-top: 18px;
+
+            color: white;
+
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            margin-top: 18px;
+
+            color: white;
+            font-size: 21px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text {
+            max-width: 680px;
+            margin: 20px auto;
+
+            color: #ddd;
+
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 12px;
+
+            padding: 15px 32px;
+
+            background: var(--gold);
+            color: #111;
+
+            font-weight: bold;
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: var(--gold-light);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+            0 10px 30px
+            rgba(212,175,55,0.35);
+        }
+
+        @keyframes heroIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            padding: 85px 20px 50px;
+
+            text-align: center;
+
+            background: var(--cream);
+        }
+
+        .section-label {
+            color: var(--gold);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .intro h2 {
+            margin-top: 12px;
+
+            color: var(--black);
+
+            font-size: 42px;
+        }
+
+        .intro h2 span {
+            color: var(--green);
+        }
+
+        .intro p {
+            max-width: 760px;
+
+            margin: 18px auto 0;
+
+            color: #666;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           VEHICLES
+        ========================= */
+
+        .vehicles {
+            padding: 50px 20px 100px;
+
+            background: var(--cream);
+        }
+
+        .vehicles-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+
+        /* =========================
+           VEHICLE CARD
+        ========================= */
+
+        .vehicle-card {
+            background: var(--dark);
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border: 1px solid transparent;
+
+            box-shadow:
+            0 15px 35px
+            rgba(0,0,0,0.18);
+
+            transition: 0.5s;
+
+            opacity: 0;
+
+            transform: translateY(40px);
+        }
+
+        .vehicle-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vehicle-card:hover {
+            transform:
+            translateY(-12px)
+            scale(1.015);
+
+            border-color: var(--gold);
+
+            box-shadow:
+            0 25px 50px
+            rgba(0,0,0,0.30),
+
+            0 0 25px
+            rgba(212,175,55,0.15);
+        }
+
+
+        /* =========================
+           VEHICLE IMAGE
+        ========================= */
+
+        .vehicle-image {
+            height: 300px;
+
+            position: relative;
+            overflow: hidden;
+
+            background: #222;
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.7s;
+        }
+
+        .vehicle-card:hover
+        .vehicle-image img {
+            transform: scale(1.08);
+        }
+
+        .vehicle-badge {
+            position: absolute;
+
+            top: 18px;
+            left: 18px;
+
+            padding: 8px 14px;
+
+            background: var(--gold);
+            color: #111;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            border-radius: 20px;
+
+            z-index: 2;
+        }
+
+        .vehicle-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+            linear-gradient(
+                to top,
+                rgba(0,0,0,0.65),
+                transparent 60%
+            );
+        }
+
+
+        /* =========================
+           VEHICLE CONTENT
+        ========================= */
+
+        .vehicle-content {
+            padding: 30px;
+        }
+
+        .vehicle-content h3 {
+            color: white;
+            font-size: 28px;
+        }
+
+        .vehicle-type {
+            display: block;
+
+            margin-top: 7px;
+
+            color: var(--gold);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .vehicle-description {
+            margin-top: 15px;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SPECS
+        ========================= */
+
+        .vehicle-specs {
+            margin-top: 23px;
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(3, 1fr);
+
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .spec {
+            padding: 18px 10px;
+
+            text-align: center;
+
+            border-right: 1px solid #333;
+        }
+
+        .spec:last-child {
+            border-right: none;
+        }
+
+        .spec-icon {
+            color: var(--gold);
+
+            font-size: 20px;
+
+            margin-bottom: 7px;
+        }
+
+        .spec strong {
+            display: block;
+
+            color: white;
+
+            font-size: 14px;
+        }
+
+        .spec small {
+            display: block;
+
+            margin-top: 4px;
+
+            color: #888;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           VEHICLE BOTTOM
+        ========================= */
+
+        .vehicle-bottom {
+            margin-top: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+        .vehicle-price {
+            color: #888;
+
+            font-size: 12px;
+        }
+
+        .vehicle-price strong {
+            display: block;
+
+            margin-top: 4px;
+
+            color: white;
+
+            font-size: 15px;
+        }
+
+        .book-button {
+            padding: 12px 20px;
+
+            background: var(--gold);
+
+            color: #111;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .book-button:hover {
+            background: var(--gold-light);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            padding: 90px 20px;
+
+            background: var(--green);
+
+            color: white;
+        }
+
+        .features-title {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .features-title h2 {
+            margin-top: 12px;
+
+            font-size: 42px;
+        }
+
+        .features-title h2 span {
+            color: var(--gold);
+        }
+
+        .features-grid {
+            max-width: 1100px;
+
+            margin: 55px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+            repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .feature {
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--gold);
+
+            border-radius: 50%;
+
+            color: var(--gold);
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .feature h3 {
+            margin-top: 20px;
+
+            font-size: 18px;
+        }
+
+        .feature p {
+            margin-top: 10px;
+
+            color: #ccc;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           BOOKING
+        ========================= */
+
+        .booking {
+            padding: 100px 20px;
+
+            background: var(--cream);
+
+            text-align: center;
+        }
+
+        .booking-content {
+            max-width: 750px;
+
+            margin: auto;
+        }
+
+        .booking small {
+            color: var(--gold);
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .booking h2 {
+            margin-top: 15px;
+
+            font-size: 45px;
+
+            color: var(--black);
+        }
+
+        .booking h2 span {
+            color: var(--green);
+        }
+
+        .booking p {
+            margin: 18px auto 0;
+
+            color: #666;
+
+            line-height: 1.8;
+        }
+
+        .buttons {
+            margin-top: 30px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .whatsapp-btn,
+        .contact-btn {
+            padding: 14px 28px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-btn {
+            background: var(--black);
+            color: white;
+        }
+
+        .contact-btn:hover {
+            background: var(--green);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--black);
+
+            color: white;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 70px 25px 50px;
+
+            display: grid;
+
+            grid-template-columns:
+            1.5fr 1fr 1fr 1.2fr;
+
+            gap: 40px;
+        }
+
+        .footer-about h2 {
+            font-size: 25px;
+        }
+
+        .footer-about h2 span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            margin-top: 15px;
+
+            color: #aaa;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .footer-title {
+            color: var(--gold);
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+
+            color: #aaa;
+
+            margin-bottom: 12px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-contact strong {
+            color: var(--gold);
+        }
+
+        .social {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .social a {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #444;
+
+            border-radius: 50%;
+
+            color: white;
+
+            font-size: 17px;
+
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--gold);
+
+            color: #111;
+
+            border-color: var(--gold);
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+
+            padding: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FLOATING WHATSAPP
+        ========================= */
+
+        .whatsapp-floating {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 58px;
+            height: 58px;
+
+            background: #25d366;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 25px;
+
+            z-index: 999;
+
+            box-shadow:
+            0 8px 25px
+            rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-floating:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .vehicles-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns:
+                repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns:
+                repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: #080808;
+
+                padding: 25px;
+
+                flex-direction: column;
+
+                gap: 22px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .intro h2,
+            .features-title h2,
+            .booking h2 {
+                font-size: 34px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+
+                padding-top: 55px;
+            }
+
+            .copyright {
+                flex-direction: column;
+
+                gap: 8px;
+
+                text-align: center;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .vehicle-content {
+                padding: 22px;
+            }
+
+            .vehicle-bottom {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .vehicle-image {
+                height: 240px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            MAKKAH <span>TAXI</span>
+        </a>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="fleet.html" class="active">Vehicles</a>
+
+
+            <a href="tours.html">
+                Ziyarat & Tours
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            OUR FLEET
+        </div>
+
+        <h1>
+            Choose Your
+            <span>Ride</span>
+        </h1>
+
+        <div class="hero-subtitle">
+            COMFORT • SAFETY • RELIABILITY
+        </div>
+
+        <p class="hero-text">
+            Choose from our range of comfortable and
+            reliable vehicles for airport transfers,
+            Umrah transportation, family trips and
+            group travel.
+        </p>
+
+        <a href="#vehicles" class="hero-button">
+            View Vehicles
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+    <div class="section-label">
+        OUR VEHICLES
+    </div>
+
+    <h2>
+        Travel in <span>Comfort</span>
+    </h2>
+
+    <p>
+        Whether you are travelling alone, with family
+        or with a large group, we have a suitable
+        vehicle for your journey around Makkah and
+        surrounding destinations.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     VEHICLES
+========================= -->
+
+<section class="vehicles" id="vehicles">
+
+    <div class="vehicles-container">
+
+
+        <!-- TOYOTA HIACE -->
+
+        <div class="vehicle-card">
+
+            <div class="vehicle-image">
+
+                <span class="vehicle-badge">
+                    FAMILY & GROUP
+                </span>
+
+                <img
+                    src="https://static.pakwheels.com/2019/08/images-21.jpeg"
+                    alt="Toyota Hiace">
+
+                <div class="vehicle-overlay"></div>
+
+            </div>
+
+            <div class="vehicle-content">
+
+                <h3>
+                    Toyota Hiace
+                </h3>
+
+                <span class="vehicle-type">
+                    FAMILY & GROUP TRANSPORT
+                </span>
+
+                <p class="vehicle-description">
+                    A comfortable option for families,
+                    small groups, Umrah trips and airport
+                    transfers with sufficient luggage space.
+                </p>
+
+                <div class="vehicle-specs">
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>
+                            10+
+                        </strong>
+
+                        <small>
+                            Passengers
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-suitcase"></i>
+                        </div>
+
+                        <strong>
+                            Extra
+                        </strong>
+
+                        <small>
+                            Luggage
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+
+                        <strong>
+                            AC
+                        </strong>
+
+                        <small>
+                            Available
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="vehicle-bottom">
+
+                    <div class="vehicle-price">
+                        Best for
+
+                        <strong>
+                            Families & Groups
+                        </strong>
+                    </div>
+
+                    <a
+                        href="https://wa.me/966552414804?text=Hello,%20I%20want%20to%20book%20a%20Toyota%20Hiace."
+                        target="_blank"
+                        class="book-button">
+
+                        Book Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HYUNDAI STARIA -->
+
+        <div class="vehicle-card">
+
+            <div class="vehicle-image">
+
+                <span class="vehicle-badge">
+                    COMFORT
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=1200&auto=format&fit=crop"
+                    alt="Hyundai Staria">
+
+                <div class="vehicle-overlay"></div>
+
+            </div>
+
+            <div class="vehicle-content">
+
+                <h3>
+                    Hyundai Staria
+                </h3>
+
+                <span class="vehicle-type">
+                    PREMIUM FAMILY TRANSPORT
+                </span>
+
+                <p class="vehicle-description">
+                    Spacious and comfortable transportation
+                    for families and small groups travelling
+                    around Makkah, Jeddah and nearby cities.
+                </p>
+
+                <div class="vehicle-specs">
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>
+                            7+
+                        </strong>
+
+                        <small>
+                            Passengers
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-suitcase"></i>
+                        </div>
+
+                        <strong>
+                            Large
+                        </strong>
+
+                        <small>
+                            Luggage
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+
+                        <strong>
+                            AC
+                        </strong>
+
+                        <small>
+                            Available
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="vehicle-bottom">
+
+                    <div class="vehicle-price">
+                        Best for
+
+                        <strong>
+                            Comfortable Trips
+                        </strong>
+                    </div>
+
+                    <a
+                        href="https://wa.me/966552414804?text=Hello,%20I%20want%20to%20book%20a%20Hyundai%20Staria."
+                        target="_blank"
+                        class="book-button">
+
+                        Book Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PREMIUM SEDAN -->
+
+        <div class="vehicle-card">
+
+            <div class="vehicle-image">
+
+                <span class="vehicle-badge">
+                    PRIVATE RIDE
+                </span>
+
+                <img
+                    src="https://images.carexpert.com.au/resize/960/-/cms/v1/media/2021-12-2022-toyota-corolla-zr-hybridhero.jpg"
+                    alt="Premium Sedan">
+
+                <div class="vehicle-overlay"></div>
+
+            </div>
+
+            <div class="vehicle-content">
+
+                <h3>
+                    Premium Sedan
+                </h3>
+
+                <span class="vehicle-type">
+                    PRIVATE TRANSPORT
+                </span>
+
+                <p class="vehicle-description">
+                    A convenient private ride for individuals,
+                    couples and small families travelling
+                    between airports, hotels and destinations.
+                </p>
+
+                <div class="vehicle-specs">
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>
+                            4
+                        </strong>
+
+                        <small>
+                            Passengers
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-suitcase"></i>
+                        </div>
+
+                        <strong>
+                            Medium
+                        </strong>
+
+                        <small>
+                            Luggage
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+
+                        <strong>
+                            AC
+                        </strong>
+
+                        <small>
+                            Available
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="vehicle-bottom">
+
+                    <div class="vehicle-price">
+                        Best for
+
+                        <strong>
+                            Private Trips
+                        </strong>
+                    </div>
+
+                    <a
+                        href="https://wa.me/966552414804?text=Hello,%20I%20want%20to%20book%20a%20private%20sedan."
+                        target="_blank"
+                        class="book-button">
+
+                        Book Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GROUP MINI BUS -->
+
+        <div class="vehicle-card">
+
+            <div class="vehicle-image">
+
+                <span class="vehicle-badge">
+                    GROUP TRAVEL
+                </span>
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCmSMJvb0feIP0APA_QYFNt847ZfVTaoIXjYhdwE0fKFO3bwuEDlsTXw16&s=10"
+                    alt="Mini Bus">
+
+                <div class="vehicle-overlay"></div>
+
+            </div>
+
+            <div class="vehicle-content">
+
+                <h3>
+                    Group Mini Bus
+                </h3>
+
+                <span class="vehicle-type">
+                    LARGE GROUP TRANSPORT
+                </span>
+
+                <p class="vehicle-description">
+                    Ideal for larger groups, family tours,
+                    airport transfers and organized Umrah
+                    transportation.
+                </p>
+
+                <div class="vehicle-specs">
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>
+                            20+
+                        </strong>
+
+                        <small>
+                            Passengers
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-suitcase"></i>
+                        </div>
+
+                        <strong>
+                            Extra
+                        </strong>
+
+                        <small>
+                            Luggage
+                        </small>
+
+                    </div>
+
+                    <div class="spec">
+
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+
+                        <strong>
+                            AC
+                        </strong>
+
+                        <small>
+                            Available
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="vehicle-bottom">
+
+                    <div class="vehicle-price">
+                        Best for
+
+                        <strong>
+                            Large Groups
+                        </strong>
+                    </div>
+
+                    <a
+                        href="https://wa.me/966552414804?text=Hello,%20I%20want%20to%20book%20a%20group%20mini%20bus."
+                        target="_blank"
+                        class="book-button">
+
+                        Book Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="features">
+
+    <div class="features-title">
+
+        <div class="section-label">
+            TRAVEL WITH CONFIDENCE
+        </div>
+
+        <h2>
+            Comfort in <span>Every Ride</span>
+        </h2>
+
+    </div>
+
+
+    <div class="features-grid">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <h3>
+                Clean Vehicles
+            </h3>
+
+            <p>
+                Our vehicles are kept clean and
+                comfortable for every journey.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-snowflake"></i>
+            </div>
+
+            <h3>
+                Air Conditioned
+            </h3>
+
+            <p>
+                Enjoy a comfortable ride with
+                air-conditioned vehicles.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>
+                Safe Journey
+            </h3>
+
+            <p>
+                Your safety and comfort remain
+                our main priority.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                24
+            </div>
+
+            <h3>
+                Available 24/7
+            </h3>
+
+            <p>
+                Book your transportation whenever
+                you need it, day or night.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BOOKING CTA
+========================= -->
+
+<section class="booking">
+
+    <div class="booking-content">
+
+        <small>
+            READY FOR YOUR JOURNEY?
+        </small>
+
+        <h2>
+            Choose Your
+            <span>Ride Today</span>
+        </h2>
+
+        <p>
+            Tell us your pickup location, destination,
+            date and number of passengers. We will help
+            you choose the right vehicle.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="https://wa.me/966552414804?text=Hello,%20I%20need%20help%20choosing%20a%20vehicle."
+                target="_blank"
+                class="whatsapp-btn">
+
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp Us
+
+            </a>
+
+            <a
+                href="contact.html"
+                class="contact-btn">
+
+                Contact Us
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-about">
+
+            <h2>
+                MAKKAH <span>TAXI</span>
+            </h2>
+
+            <p>
+                Reliable, comfortable and safe taxi
+                service for Makkah, Madinah, Jeddah,
+                Taif and surrounding destinations.
+            </p>
+
+             <div class="social">
+
+                <a
+                    href="https://wa.me/966552414804"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3 class="footer-title">
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="fleet.html">
+                    Vehicles
+                </a>
+
+            <a href="tours.html">
+                Ziyarat & Tours
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3 class="footer-title">
+                Our Services
+            </h3>
+
+            <a href="services.html">
+                Airport Transfer
+            </a>
+
+            <a href="services.html">
+                Hotel Transfer
+            </a>
+
+            <a href="services.html">
+                Umrah Transport
+            </a>
+
+            <a href="services.html">
+                Ziyarat Service
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3 class="footer-title">
+                Contact
+            </h3>
+
+            <p>
+                <strong>Location:</strong>
+                Makkah, Saudi Arabia
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                +966 55 241 4804
+            </p>
+
+            <p>
+                <strong>Availability:</strong>
+                24/7
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 Makkah Taxi Service.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Your Journey • Our Priority
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     FLOATING WHATSAPP
+========================= -->
+
+<a
+    href="https://wa.me/966552414804?text=Hello%20I%20would%20like%20to%20book%20a%20vehicle."
+    target="_blank"
+    class="whatsapp-floating"
+    aria-label="WhatsApp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    function toggleMenu() {
+
+        document
+        .getElementById("navLinks")
+        .classList
+        .toggle("show");
+
+    }
+
+
+    const vehicleCards =
+        document.querySelectorAll(".vehicle-card");
+
+
+    const observer =
+        new IntersectionObserver(
+
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                        .classList
+                        .add("show");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    vehicleCards.forEach(function(card) {
+
+        observer.observe(card);
+
+    });
+
+</script>
+
+
+</body>
+</html>

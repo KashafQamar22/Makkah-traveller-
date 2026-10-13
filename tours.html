@@ -1,0 +1,2754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Makkah Ziyarat & Tours | Makkah Taxi</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================================
+           GLOBAL STYLES
+        ========================================= */
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f3d66d;
+            --black: #080808;
+            --dark: #111111;
+            --card: #171717;
+            --green: #0b3d2e;
+            --green-light: #155b43;
+            --cream: #f7f1df;
+            --white: #ffffff;
+            --gray: #b6b6b6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================================
+           NAVBAR
+           SAME AS SERVICES PAGE
+        ========================================= */
+
+        .navbar {
+            width: 100%;
+            height: 75px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.97);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+
+        .hero {
+            min-height: 690px;
+            height: 88vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            position: relative;
+
+            background:
+                url("https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=2000&q=85")
+                center 45% / cover no-repeat;
+
+            background-color: #151515;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.85),
+                    rgba(0, 0, 0, 0.53),
+                    rgba(0, 0, 0, 0.76)
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(900px, 90%);
+            padding-top: 70px;
+
+            animation: heroEnter 1s ease both;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 18px;
+
+            color: var(--gold);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            background: rgba(0, 0, 0, 0.35);
+
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            margin-top: 25px;
+            color: white;
+
+            font-size: clamp(43px, 7vw, 78px);
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            color: var(--gold-light);
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-top: 20px;
+        }
+
+        .hero-description {
+            max-width: 730px;
+            margin: 22px auto 30px;
+
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .gold-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 15px 30px;
+
+            background: var(--gold);
+            color: #111;
+
+            border-radius: 5px;
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+        .gold-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.25);
+        }
+
+        @keyframes heroEnter {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================================
+           INTRODUCTION
+        ========================================= */
+
+        .intro {
+            padding: 85px 20px 50px;
+            text-align: center;
+            background: var(--cream);
+        }
+
+        .section-label {
+            color: #92731b;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .section-title {
+            margin-top: 13px;
+            font-size: clamp(30px, 4vw, 43px);
+            color: var(--black);
+        }
+
+        .section-title span {
+            color: var(--green);
+        }
+
+        .section-description {
+            max-width: 780px;
+            margin: 17px auto 0;
+
+            font-size: 15px;
+            line-height: 1.9;
+            color: #666;
+        }
+
+
+        /* =========================================
+           CATEGORY FILTERS
+        ========================================= */
+
+        .filters {
+            padding: 15px 20px 45px;
+            background: var(--cream);
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+
+            background: transparent;
+            color: var(--green);
+
+            border: 1px solid var(--green);
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+
+        /* =========================================
+           DESTINATIONS GRID
+        ========================================= */
+
+        .destinations {
+            background: var(--cream);
+            padding: 0 20px 100px;
+        }
+
+        .destination-grid {
+            width: min(1200px, 100%);
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 27px;
+        }
+
+        .destination-card {
+            background: var(--card);
+            color: white;
+
+            border-radius: 12px;
+            overflow: hidden;
+
+            border: 1px solid rgba(212, 175, 55, 0.1);
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .destination-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-9px);
+            border-color: var(--gold);
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.24),
+                0 0 18px rgba(212, 175, 55, 0.12);
+        }
+
+        .destination-card.hidden {
+            display: none;
+        }
+
+
+        /* CARD IMAGE */
+
+        .card-image {
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+            background: #292929;
+        }
+
+        .card-image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+
+            transition: transform 0.7s ease;
+        }
+
+        .destination-card:hover .card-image img {
+            transform: scale(1.09);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.65),
+                    transparent 65%
+                );
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 2;
+
+            padding: 8px 12px;
+
+            border-radius: 4px;
+
+            background: var(--gold);
+            color: #111;
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .card-number {
+            position: absolute;
+            right: 17px;
+            bottom: 12px;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+
+        /* CARD CONTENT */
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: white;
+            font-size: 21px;
+            line-height: 1.4;
+        }
+
+        .card-content p {
+            margin-top: 13px;
+
+            color: #bdbdbd;
+            font-size: 13px;
+            line-height: 1.85;
+
+            min-height: 72px;
+        }
+
+        .card-divider {
+            height: 1px;
+            margin: 20px 0;
+
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .map-link {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .map-link:hover {
+            color: white;
+        }
+
+        .book-link {
+            display: inline-block;
+
+            background: var(--gold);
+            color: #111;
+
+            padding: 11px 15px;
+            border-radius: 4px;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+        .book-link:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================
+           TOUR PACKAGES
+        ========================================= */
+
+        .packages {
+            padding: 90px 20px;
+            background: var(--green);
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .packages-header .section-label {
+            color: var(--gold-light);
+        }
+
+        .packages-header h2 {
+            margin-top: 13px;
+            color: white;
+            font-size: clamp(30px, 4vw, 42px);
+        }
+
+        .packages-header h2 span {
+            color: var(--gold);
+        }
+
+        .packages-header p {
+            max-width: 720px;
+            margin: 16px auto 0;
+
+            color: #d3e0d9;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .package-grid {
+            width: min(1100px, 100%);
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .package-card {
+            padding: 30px 25px;
+
+            background: rgba(0, 0, 0, 0.2);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+
+            transition: 0.4s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            background: rgba(0, 0, 0, 0.32);
+            border-color: var(--gold);
+        }
+
+        .package-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--gold);
+            color: #111;
+
+            border-radius: 50%;
+            font-size: 25px;
+        }
+
+        .package-card h3 {
+            color: white;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .package-card p {
+            margin-top: 12px;
+
+            color: #d0d9d4;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .package-link {
+            display: inline-block;
+            margin-top: 20px;
+
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .package-link:hover {
+            color: white;
+        }
+
+
+        /* =========================================
+           IMPORTANT TRAVEL NOTE
+        ========================================= */
+
+        .travel-note {
+            width: min(1100px, 92%);
+            margin: 65px auto;
+
+            padding: 25px 28px;
+
+            background: #fff9e8;
+            border-left: 4px solid var(--gold);
+
+            border-radius: 5px;
+        }
+
+        .travel-note h3 {
+            color: var(--green);
+            font-size: 17px;
+        }
+
+        .travel-note p {
+            margin-top: 10px;
+
+            color: #5f5b50;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+
+        /* =========================================
+           BOOKING BANNER
+        ========================================= */
+
+        .booking-banner {
+            position: relative;
+            overflow: hidden;
+
+            padding: 95px 20px;
+
+            text-align: center;
+            background: var(--black);
+        }
+
+        .booking-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(11, 61, 46, 0.8),
+                    transparent 70%
+                );
+        }
+
+        .booking-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(800px, 100%);
+            margin: auto;
+        }
+
+        .booking-content .section-label {
+            color: var(--gold);
+        }
+
+        .booking-content h2 {
+            margin-top: 15px;
+
+            color: white;
+            font-size: clamp(32px, 5vw, 48px);
+        }
+
+        .booking-content h2 span {
+            color: var(--gold);
+        }
+
+        .booking-content p {
+            margin-top: 18px;
+
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .booking-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            margin-top: 28px;
+        }
+
+        .whatsapp-button,
+        .contact-button {
+            display: inline-block;
+            padding: 15px 26px;
+
+            border-radius: 5px;
+            font-weight: 800;
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-button {
+            color: white;
+            background: #25d366;
+        }
+
+        .contact-button {
+            color: #111;
+            background: var(--gold);
+        }
+
+        .whatsapp-button:hover,
+        .contact-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* =========================================
+           FOOTER
+           SAME AS SERVICES PAGE
+        ========================================= */
+
+        footer {
+            background: var(--black);
+            color: white;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 25px 50px;
+
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        .footer-about h2 {
+            font-size: 25px;
+        }
+
+        .footer-about h2 span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            margin-top: 15px;
+
+            color: #aaa;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .footer-title {
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+
+            color: #aaa;
+            margin-bottom: 12px;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact strong {
+            color: var(--gold);
+        }
+
+        .social {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social a {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #444;
+            border-radius: 50%;
+
+            color: white;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--gold);
+            color: #080808;
+            border-color: var(--gold);
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+
+            padding: 20px;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           FLOATING WHATSAPP
+        ========================================= */
+
+        .floating-whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #25d366;
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 25px;
+
+            z-index: 999;
+
+            transition: 0.3s;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* =========================================
+           TABLET RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .destination-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .package-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: #080808;
+
+                padding: 25px;
+
+                flex-direction: column;
+                gap: 22px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 610px;
+                height: auto;
+                padding: 120px 0 70px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+                letter-spacing: 2px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .intro {
+                padding-top: 65px;
+            }
+
+            .filters {
+                padding-bottom: 35px;
+                gap: 9px;
+            }
+
+            .filter-btn {
+                padding: 10px 13px;
+                font-size: 11px;
+            }
+
+            .destination-grid {
+                grid-template-columns: 1fr;
+                max-width: 470px;
+            }
+
+            .card-image {
+                height: 250px;
+            }
+
+            .card-content p {
+                min-height: 0;
+            }
+
+            .package-grid {
+                grid-template-columns: 1fr;
+                max-width: 470px;
+            }
+
+            .packages {
+                padding: 70px 20px;
+            }
+
+            .travel-note {
+                margin: 40px auto;
+                padding: 22px;
+            }
+
+            .booking-banner {
+                padding: 75px 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding-top: 50px;
+            }
+
+            .copyright {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .floating-whatsapp {
+                right: 16px;
+                bottom: 16px;
+                width: 53px;
+                height: 53px;
+            }
+
+        }
+
+
+        /* REDUCED MOTION ACCESSIBILITY */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =====================================
+         NAVBAR
+         SAME AS SERVICES PAGE
+    ====================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                MAKKAH <span>TAXI</span>
+            </a>
+
+            <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+  <a href="fleet.html">
+                    Vehicles
+                </a>
+
+                <a href="tours.html" class="active">
+                    Ziyarat & Tours
+                </a>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                DISCOVER THE HOLY CITY
+            </div>
+
+            <h1>
+                Makkah <span>Ziyarat</span><br>
+                & Tours
+            </h1>
+
+            <p class="hero-subtitle">
+                FAITH • HISTORY • HERITAGE
+            </p>
+
+            <p class="hero-description">
+                Explore the sacred landmarks, historical mosques,
+                mountains, museums and remarkable places of Makkah
+                with comfortable transportation for your journey.
+            </p>
+
+            <a href="#destinations" class="gold-button">
+                Explore Destinations ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         INTRODUCTION
+    ====================================== -->
+
+    <section class="intro">
+
+        <div class="section-label">
+            EXPLORE MAKKAH
+        </div>
+
+        <h2 class="section-title">
+            Discover the <span>Holy City</span>
+        </h2>
+
+        <p class="section-description">
+            Makkah is home to the Grand Mosque, important sites
+            from Islamic history, the sacred Hajj locations and
+            cultural attractions. Explore the destinations below
+            and choose the places you would like to visit.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FILTER BUTTONS
+    ====================================== -->
+
+    <div class="filters">
+
+        <button class="filter-btn active" data-filter="all">
+            All Places
+        </button>
+
+        <button class="filter-btn" data-filter="sacred">
+            Sacred Places
+        </button>
+
+        <button class="filter-btn" data-filter="history">
+            Historical Sites
+        </button>
+
+        <button class="filter-btn" data-filter="museum">
+            Museums & Culture
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================
+         DESTINATIONS
+    ====================================== -->
+
+    <section class="destinations" id="destinations">
+
+        <div class="destination-grid">
+
+
+            <!-- 01 MASJID AL-HARAM -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        SACRED PLACE
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=900&q=80"
+                        alt="Masjid Al-Haram in Makkah"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">01</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Masjid Al-Haram</h3>
+
+                    <p>
+                        The holiest mosque in Islam, surrounding the
+                        Holy Kaaba. It is the central destination for
+                        Muslims performing Hajj and Umrah.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Masjid+Al+Haram+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Masjid%20Al-Haram."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 02 CLOCK TOWER -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        CITY LANDMARK
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80"
+                        alt="Makkah Clock Tower area"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">02</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Abraj Al-Bait Clock Tower</h3>
+
+                    <p>
+                        One of Makkah's most recognizable modern
+                        landmarks, located opposite the Grand Mosque
+                        and surrounded by shopping and hotel facilities.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Abraj+Al+Bait+Clock+Tower+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Abraj+Al-Bait."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 03 JABAL AL-NOOR -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORICAL SITE
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+                        alt="Mountain landscape representing Jabal Al-Noor"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">03</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Jabal Al-Noor & Ghar-e-Hira</h3>
+
+                    <p>
+                        Jabal Al-Noor is associated with the first
+                        revelation received by Prophet Muhammad ﷺ.
+                        Ghar-e-Hira is located on this mountain.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Jabal+Al+Noor+Ghar+Hira+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Jabal%20Al-Noor."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 04 HIRA CULTURAL DISTRICT -->
+
+            <article class="destination-card" data-category="museum">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        CULTURE & HISTORY
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80"
+                        alt="Cultural exhibition space"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">04</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Hira Cultural District</h3>
+
+                    <p>
+                        A cultural destination at the foot of Jabal
+                        Al-Noor, with educational attractions,
+                        landscaped spaces and exhibits related to
+                        Makkah's Islamic heritage.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Hira+Cultural+District+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Hira%20Cultural%20District."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 05 REVELATION EXHIBITION -->
+
+            <article class="destination-card" data-category="museum">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        MUSEUM
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=80"
+                        alt="Museum exhibition"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">05</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Revelation Exhibition</h3>
+
+                    <p>
+                        An educational exhibition introducing visitors
+                        to the story of revelation and its connection
+                        with the life of Prophet Muhammad ﷺ.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Revelation+Exhibition+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20the%20Revelation%20Exhibition."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 06 HOLY QURAN MUSEUM -->
+
+            <article class="destination-card" data-category="museum">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        QURAN & HERITAGE
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80"
+                        alt="Holy Quran and Islamic heritage"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">06</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Holy Quran Museum</h3>
+
+                    <p>
+                        Discover educational displays about the Holy
+                        Quran, its history, manuscripts and its
+                        importance in Muslim life.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Holy+Quran+Museum+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20the%20Holy%20Quran%20Museum."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 07 JABAL THAWR -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORICAL SITE
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                        alt="Rocky mountain landscape representing Jabal Thawr"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">07</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Jabal Thawr & Cave of Thawr</h3>
+
+                    <p>
+                        This mountain is associated with the Hijrah
+                        of Prophet Muhammad ﷺ and Abu Bakr رضي الله عنه.
+                        The cave is located high on the mountain.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Jabal+Thawr+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Jabal%20Thawr."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 08 ARAFAT -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HAJJ LANDMARK
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80"
+                        alt="Open landscape representing the plain of Arafat"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">08</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Arafat & Jabal Al-Rahmah</h3>
+
+                    <p>
+                        Arafat is central to the Hajj pilgrimage.
+                        Jabal Al-Rahmah is a well-known landmark
+                        within the plain of Arafat.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Jabal+Al+Rahmah+Arafat+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Arafat."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 09 MASJID NAMIRAH -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORIC MOSQUE
+                    </span>
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb81-y1LFbemxj-QwAotD-CWzE4H9_ry8g054zaducsQ6QllLCOEGcqmFV&s=10"
+                        alt="Mosque architecture"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">09</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Masjid Namirah</h3>
+
+                    <p>
+                        A prominent mosque in the Arafat area,
+                        closely associated with the Hajj rituals
+                        and the Day of Arafah.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Masjid+Namirah+Arafat"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Masjid%20Namirah."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 10 MINA -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HAJJ LANDMARK
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80"
+                        alt="Makkah landscape representing Mina"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">10</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Mina & Jamarat Bridge</h3>
+
+                    <p>
+                        Mina is a key location during Hajj, known for
+                        its extensive tent areas and the Jamarat Bridge,
+                        where pilgrims perform the stoning ritual.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Mina+Jamarat+Bridge+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Mina."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 11 MUZDALIFAH -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HAJJ LANDMARK
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"
+                        alt="Open landscape representing Muzdalifah"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">11</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Muzdalifah</h3>
+
+                    <p>
+                        One of the sacred Hajj locations between
+                        Arafat and Mina, where pilgrims spend part
+                        of the night during the Hajj pilgrimage.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Muzdalifah+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Muzdalifah."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 12 MASJID AISH A / TAN'EEM -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        UMRAH MIQAT
+                    </span>
+
+                    <img
+                        src="https://image-tc.galaxy.tf/wijpeg-4hv538ybui872ujk3nzlmnajq/masjid-aisha-2.jpg"
+                        alt="Mosque architecture representing Masjid Aisha"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">12</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Masjid Aisha — At-Tan'eem</h3>
+
+                    <p>
+                        A well-known miqat near Makkah, used by
+                        people who are in Makkah and intend to
+                        enter Ihram for another Umrah.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Masjid+Aisha+At+Tanem+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Masjid%20Aisha%20Tanem."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 13 MASJID AL-JINN -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORIC MOSQUE
+                    </span>
+
+                    <img
+                        src="https://visitsilkroad.org/wp-content/uploads/2023/11/Numismatic-exposition-in-the-JInn-mosque-featured_image.jpg"
+                        alt="Mosque architecture representing Masjid Al-Jinn"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">13</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Masjid Al-Jinn</h3>
+
+                    <p>
+                        A historic mosque near Al-Ma'la Cemetery,
+                        associated with an event from the life
+                        of Prophet Muhammad ﷺ.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Masjid+Al+Jinn+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Masjid%20Al-Jinn."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 14 HUDAYBIYYAH -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        ISLAMIC HISTORY
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                        alt="Landscape representing Al-Hudaybiyyah"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">14</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Al-Hudaybiyyah</h3>
+
+                    <p>
+                        An important historical location associated
+                        with the Treaty of Hudaybiyyah, a major event
+                        in early Islamic history.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Al+Hudaybiyyah+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Al-Hudaybiyyah."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 15 MASJID AL-JI'RANAH -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORIC MOSQUE
+                    </span>
+
+                    <img
+                        src="https://www.islamiclandmarks.com/wp-content/uploads/2020/11/Qiblah-side-of-Masjid-Jirranah.jpg"
+                        alt="Mosque architecture representing Al-Ji'ranah"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">15</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Masjid Al-Ji'ranah</h3>
+
+                    <p>
+                        A historic mosque associated with events
+                        after the Battle of Hunayn. It is also
+                        a miqat used by some people entering Ihram
+                        for Umrah.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Masjid+Al+Jiranah+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Masjid%20Al-Ji%27ranah."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 16 TUWA WELL -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORICAL SITE
+                    </span>
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDdb6rlFtlfrb1ke01fynFE8HB38szoHQtrQcWlGNo-Dodnb0C6DkI1qv_&s=10"
+                        alt="Historic landscape representing Bi'r Tuwa"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">16</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Bi'r Tuwa — Tuwa Well</h3>
+
+                    <p>
+                        A historic well in Makkah associated with
+                        important events in the Prophetic biography
+                        and the history of the city.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Bir+Tuwa+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Bi%27r%20Tuwa."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 17 MASJID AL-KHAYF -->
+
+            <article class="destination-card" data-category="sacred">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        MINA LANDMARK
+                    </span>
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDKhwkbmQXkyxiPjruFsdNuw-z7HWbGHIAlySn2LvkfaM2OnQZ7cmAZlU&s=10"
+                        alt="Mosque architecture representing Masjid Al-Khayf"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">17</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Masjid Al-Khayf</h3>
+
+                    <p>
+                        A well-known historic mosque located in Mina,
+                        an important area for pilgrims performing
+                        the Hajj rituals.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Masjid+Al+Khayf+Mina"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Masjid%20Al-Khayf."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 18 AL-IJABAH MOSQUE -->
+
+            <article class="destination-card" data-category="history">
+
+                <div class="card-image">
+
+                    <span class="category-badge">
+                        HISTORIC MOSQUE
+                    </span>
+
+                    <img
+                        src="https://pn-site-storage.fra1.cdn.digitaloceanspaces.com/PN-SITE-2-WP/uploads/2022/08/MVC-013F-1.jpg"
+                        alt="Mosque architecture representing Al-Ijabah Mosque"
+                        loading="lazy">
+
+                    <div class="image-overlay"></div>
+
+                    <span class="card-number">18</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>Al-Ijabah Mosque</h3>
+
+                    <p>
+                        A historic mosque in Makkah associated with
+                        events from the life of Prophet Muhammad ﷺ.
+                        Visitors can learn about its historical
+                        significance.
+                    </p>
+
+                    <div class="card-divider"></div>
+
+                    <div class="card-actions">
+
+                        <a
+                            class="map-link"
+                            href="https://www.google.com/maps/search/?api=1&query=Al+Ijabah+Mosque+Makkah"
+                            target="_blank"
+                            rel="noopener">
+                            📍 View Location
+                        </a>
+
+                        <a
+                            class="book-link"
+                            href="https://wa.me/966552414804?text=Hello%2C%20I%20need%20transport%20to%20Al-Ijabah+Mosque."
+                            target="_blank"
+                            rel="noopener">
+                            BOOK RIDE
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         TOUR PACKAGES
+    ====================================== -->
+
+    <section class="packages">
+
+        <div class="packages-header">
+
+            <div class="section-label">
+                PLAN YOUR JOURNEY
+            </div>
+
+            <h2>
+                Explore Our <span>Tour Options</span>
+            </h2>
+
+            <p>
+                Choose a tour that suits your plans. Contact us
+                to confirm the route, vehicle availability,
+                pickup time and price before booking.
+            </p>
+
+        </div>
+
+
+        <div class="package-grid">
+
+
+            <div class="package-card">
+
+                <div class="package-icon">
+                    🕌
+                </div>
+
+                <h3>Historical Ziyarat Tour</h3>
+
+                <p>
+                    Explore selected historical mosques and
+                    landmarks associated with the history
+                    of Makkah.
+                </p>
+
+                <a
+                    class="package-link"
+                    href="https://wa.me/966552414804?text=Hello%2C%20I%20want%20to%20book%20a%20historical%20Ziyarat%20tour.">
+                    ENQUIRE ABOUT TOUR →
+                </a>
+
+            </div>
+
+
+
+            <div class="package-card">
+
+                <div class="package-icon">
+                    🕋
+                </div>
+
+                <h3>Hajj Sites Tour</h3>
+
+                <p>
+                    Ask about transport to Arafat, Mina,
+                    Muzdalifah and other Hajj-related
+                    landmarks when access is permitted.
+                </p>
+
+                <a
+                    class="package-link"
+                    href="https://wa.me/966552414804?text=Hello%2C%20I%20want%20to%20enquire%20about%20a%20Hajj%20sites%20tour.">
+                    ENQUIRE ABOUT TOUR →
+                </a>
+
+            </div>
+
+
+
+            <div class="package-card">
+
+                <div class="package-icon">
+                    🚐
+                </div>
+
+                <h3>Private Family Tour</h3>
+
+                <p>
+                    Arrange a private vehicle for your family
+                    and discuss the destinations and timing
+                    that work best for your group.
+                </p>
+
+                <a
+                    class="package-link"
+                    href="https://wa.me/966552414804?text=Hello%2C%20I%20want%20to%20arrange%20a%20private%20family%20tour.">
+                    ENQUIRE ABOUT TOUR →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         IMPORTANT NOTE
+    ====================================== -->
+
+    <div class="travel-note">
+
+        <h3>Important Information Before Your Visit</h3>
+
+        <p>
+            Access to some sacred sites may be restricted during
+            Hajj or at other times. Museum opening hours, entry
+            requirements and transport access can change, so
+            confirm details before travelling. Jabal Al-Noor and
+            Jabal Thawr involve strenuous uphill climbs to reach
+            their caves; visitors should consider their fitness
+            and safety. A vehicle can take you to the destination
+            area but may not be able to reach the cave itself.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         BOOKING BANNER
+    ====================================== -->
+
+    <section class="booking-banner">
+
+        <div class="booking-content">
+
+            <div class="section-label">
+                YOUR JOURNEY STARTS HERE
+            </div>
+
+            <h2>
+                Ready for Your <span>Ziyarat?</span>
+            </h2>
+
+            <p>
+                Tell us which places you want to visit, your
+                pickup location, travel date and number of
+                passengers. Contact Makkah Taxi to discuss
+                your transportation arrangements.
+            </p>
+
+            <div class="booking-buttons">
+
+                <a
+                    href="https://wa.me/966552414804?text=Hello%2C%20I%20want%20to%20book%20a%20Makkah%20Ziyarat%20tour."
+                    class="whatsapp-button"
+                    target="_blank"
+                    rel="noopener">
+
+                    WhatsApp for Booking
+
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="contact-button">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+         SAME AS SERVICES PAGE
+    ====================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-about">
+
+                <h2>
+                    MAKKAH <span>TAXI</span>
+                </h2>
+
+                <p>
+                    Reliable, comfortable and safe taxi service for
+                    Makkah, Madinah, Jeddah, Taif and surrounding destinations.
+                </p>
+
+                <div class="social">
+
+                <a
+                    href="https://wa.me/966552414804"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3 class="footer-title">
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                 <a href="fleet.html">
+                    Vehicles
+                </a>
+
+                <a href="tours.html">
+                    Ziyarat & Tours
+                </a>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3 class="footer-title">
+                    Our Services
+                </h3>
+
+                <a href="services.html">
+                    Airport Transfer
+                </a>
+
+                <a href="services.html">
+                    Hotel Transfer
+                </a>
+
+                <a href="services.html">
+                    Umrah Transport
+                </a>
+
+                <a href="services.html">
+                    Ziyarat Service
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h3 class="footer-title">
+                    Contact
+                </h3>
+
+                <p>
+                    <strong>Location:</strong>
+                    Makkah, Saudi Arabia
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    +966 55 241 4804
+                </p>
+
+                <p>
+                    <strong>Availability:</strong>
+                    24/7
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Makkah Taxi Service. All Rights Reserved.
+            </p>
+
+            <p>
+                Your Journey • Our Priority
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================
+         FLOATING WHATSAPP
+    ====================================== -->
+
+    <a
+        href="https://wa.me/966552414804?text=Hello%20I%20would%20like%20to%20book%20a%20taxi."
+        target="_blank"
+        class="floating-whatsapp"
+        aria-label="WhatsApp">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+        /* MOBILE NAVIGATION */
+
+        function toggleMenu() {
+
+            document
+                .getElementById("navLinks")
+                .classList.toggle("show");
+
+        }
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList.remove("show");
+
+                });
+
+            });
+
+
+
+        /* DESTINATION FILTERS */
+
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const destinationCards =
+            document.querySelectorAll(".destination-card");
+
+
+        filterButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const selectedCategory =
+                    button.getAttribute("data-filter");
+
+
+                filterButtons.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+                button.classList.add("active");
+
+
+                destinationCards.forEach(function (card) {
+
+                    const cardCategory =
+                        card.getAttribute("data-category");
+
+
+                    const shouldShow =
+                        selectedCategory === "all" ||
+                        selectedCategory === cardCategory;
+
+
+                    if (shouldShow) {
+
+                        card.classList.remove("hidden");
+
+                        requestAnimationFrame(function () {
+
+                            card.classList.add("visible");
+
+                        });
+
+                    } else {
+
+                        card.classList.remove("visible");
+                        card.classList.add("hidden");
+
+                    }
+
+                });
+
+            });
+
+        });
+
+
+
+        /* SCROLL ANIMATION */
+
+        const cardObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            cardObserver.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.08
+                }
+
+            );
+
+
+        destinationCards.forEach(function (card) {
+
+            cardObserver.observe(card);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1849 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Makkah Taxi | Services</title>
+
+    <!-- WHATSAPP ICON LIBRARY -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        /* ==============================
+           RESET
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f1df;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ==============================
+           COLORS
+        ============================== */
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f1d46a;
+            --black: #080808;
+            --dark: #121212;
+            --green: #0b3d2e;
+            --green-light: #145c43;
+            --cream: #f7f1df;
+            --white: #ffffff;
+            --gray: #aaaaaa;
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .navbar {
+            width: 100%;
+            height: 75px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.97);
+
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+
+            color: white;
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 650px;
+            height: 85vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            /* UPDATED HERO IMAGE */
+            background-image:
+                url("https://images.unsplash.com/photo-1564769625905-50e93615e769?q=90&w=1920&auto=format&fit=crop");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.58),
+                    rgba(0,0,0,0.68)
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+
+            padding: 30px;
+
+            animation: heroAnimation 1.2s ease;
+        }
+
+        .hero-label {
+            color: var(--gold);
+
+            font-size: 14px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            margin-top: 20px;
+
+            color: white;
+
+            font-size: clamp(45px, 7vw, 80px);
+
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            margin-top: 20px;
+
+            color: white;
+
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+
+            margin: 20px auto;
+
+            color: #ddd;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .gold-button {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 15px 32px;
+
+            background: var(--gold);
+            color: #111;
+
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .gold-button:hover {
+            background: var(--gold-light);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 30px rgba(212,175,55,0.35);
+        }
+
+        @keyframes heroAnimation {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ==============================
+           INTRO
+        ============================== */
+
+        .intro {
+            background: var(--cream);
+
+            padding: 85px 20px 45px;
+
+            text-align: center;
+        }
+
+        .section-label {
+            color: var(--gold);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .intro h2 {
+            margin-top: 12px;
+
+            font-size: 42px;
+
+            color: var(--black);
+        }
+
+        .intro h2 span {
+            color: var(--green);
+        }
+
+        .intro p {
+            max-width: 750px;
+
+            margin: 18px auto 0;
+
+            color: #666;
+
+            line-height: 1.8;
+        }
+
+
+        /* ==============================
+           SERVICES
+        ============================== */
+
+        .services {
+            background: var(--cream);
+
+            padding: 50px 20px 100px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 28px;
+        }
+
+
+        /* ==============================
+           SERVICE CARD
+        ============================== */
+
+        .service-card {
+            background: var(--dark);
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            border: 1px solid transparent;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.15);
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            transition:
+                0.5s ease;
+        }
+
+        .service-card.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform:
+                translateY(-12px)
+                scale(1.02);
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,0.3),
+                0 0 25px rgba(212,175,55,0.18);
+        }
+
+
+        /* IMAGE */
+
+        .service-image {
+            height: 230px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.6s;
+        }
+
+        .service-card:hover
+        .service-image img {
+            transform: scale(1.12);
+        }
+
+        .image-dark {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.7),
+                    transparent
+                );
+        }
+
+
+        /* ICON */
+
+        .service-icon {
+            width: 68px;
+            height: 68px;
+
+            position: absolute;
+
+            left: 25px;
+            bottom: -30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--gold);
+
+            color: #111;
+
+            border-radius: 50%;
+
+            border: 5px solid var(--dark);
+
+            font-size: 28px;
+
+            transition: 0.4s;
+        }
+
+        .service-card:hover
+        .service-icon {
+            background: var(--green);
+
+            color: var(--gold);
+
+            transform:
+                rotate(8deg)
+                scale(1.12);
+        }
+
+
+        /* CONTENT */
+
+        .service-content {
+            padding: 50px 25px 30px;
+        }
+
+        .service-number {
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .service-content h3 {
+            margin-top: 8px;
+
+            color: white;
+
+            font-size: 23px;
+        }
+
+        .service-content p {
+            margin-top: 12px;
+
+            color: #aaa;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .service-link {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            color: var(--gold);
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .service-link:hover {
+            color: var(--gold-light);
+
+            transform: translateX(5px);
+        }
+
+
+        /* ==============================
+           WHY CHOOSE US
+        ============================== */
+
+        .why {
+            background: var(--green);
+
+            padding: 90px 20px;
+        }
+
+        .why-title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .why-title .section-label {
+            color: var(--gold);
+        }
+
+        .why-title h2 {
+            margin-top: 12px;
+
+            color: white;
+
+            font-size: 42px;
+        }
+
+        .why-title h2 span {
+            color: var(--gold);
+        }
+
+        .why-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 22px;
+        }
+
+        .why-card {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+
+            border-radius: 10px;
+
+            transition: 0.4s;
+        }
+
+        .why-card:hover {
+            transform:
+                translateY(-8px)
+                scale(1.03);
+
+            background:
+                rgba(255,255,255,0.12);
+        }
+
+        .why-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            color: #111;
+
+            font-size: 26px;
+
+            transition: 0.4s;
+        }
+
+        .why-card:hover .why-icon {
+            transform: rotateY(180deg);
+        }
+
+        .why-card h3 {
+            margin-top: 20px;
+
+            color: white;
+
+            font-size: 19px;
+        }
+
+        .why-card p {
+            margin-top: 10px;
+
+            color: #ccc;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           BOOKING
+        ============================== */
+
+        .booking {
+            min-height: 430px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background-image:
+                url("https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1920&auto=format&fit=crop");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+        .booking::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.75);
+        }
+
+        .booking-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 750px;
+
+            padding: 30px 20px;
+        }
+
+        .booking-content small {
+            color: var(--gold);
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        .booking-content h2 {
+            margin-top: 15px;
+
+            color: white;
+
+            font-size: 45px;
+        }
+
+        .booking-content h2 span {
+            color: var(--gold);
+        }
+
+        .booking-content p {
+            margin-top: 15px;
+
+            color: #ddd;
+
+            line-height: 1.7;
+        }
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 28px;
+        }
+
+        .whatsapp-button,
+        .contact-button {
+            padding: 14px 27px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-button {
+            background: #25d366;
+
+            color: white;
+        }
+
+        .contact-button {
+            background: var(--gold);
+
+            color: #111;
+        }
+
+        .whatsapp-button:hover,
+        .contact-button:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.35);
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: var(--black);
+
+            color: white;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 70px 25px 50px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1.2fr;
+
+            gap: 40px;
+        }
+
+        .footer-about h2 {
+            font-size: 25px;
+        }
+
+        .footer-about h2 span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            margin-top: 15px;
+
+            color: #aaa;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .footer-title {
+            color: var(--gold);
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+
+            color: #aaa;
+
+            margin-bottom: 12px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-contact strong {
+            color: var(--gold);
+        }
+
+        .social {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .social a {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid #444;
+
+            border-radius: 50%;
+
+            color: white;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--gold);
+
+            color: #111;
+
+            border-color: var(--gold);
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+
+            padding: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           FLOATING WHATSAPP
+        ============================== */
+
+        .floating-whatsapp {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #25d366;
+
+            color: white;
+
+            font-size: 30px;
+
+            text-decoration: none;
+
+            z-index: 9999;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.3);
+
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+
+
+            70% {
+                box-shadow:
+                    0 0 0 15px
+                    rgba(37,211,102,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(37,211,102,0);
+            }
+
+        }
+
+
+        /* ==============================
+           TABLET
+        ============================== */
+
+        @media (max-width: 1000px) {
+
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: #080808;
+
+                padding: 25px;
+
+                flex-direction: column;
+
+                gap: 22px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 600px;
+
+                height: auto;
+
+                padding:
+                    130px 15px
+                    80px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+            }
+
+            .intro h2,
+            .why-title h2 {
+                font-size: 32px;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-content h2 {
+                font-size: 34px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .copyright {
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 8px;
+            }
+
+            .floating-whatsapp {
+                width: 55px;
+                height: 55px;
+
+                right: 18px;
+                bottom: 18px;
+
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            MAKKAH <span>TAXI</span>
+        </a>
+
+        <div class="menu-btn"
+             onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html"
+               class="active">
+                Services
+            </a>
+
+            <a href="fleet.html">
+                Vehicles
+            </a>
+
+            <a href="tours.html">
+                Ziyarat & Tours
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            ★ PREMIUM TAXI SERVICE
+        </div>
+
+        <h1>
+            Our <span>Services</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Reliable • Comfortable • Safe
+        </p>
+
+        <p class="hero-text">
+            Professional transportation services for
+            Umrah pilgrims, families and travellers
+            throughout Saudi Arabia.
+        </p>
+
+        <a href="contact.html"
+           class="gold-button">
+
+            🚕 Book Your Ride
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     INTRO
+===================================== -->
+
+<section class="intro">
+
+    <div class="section-label">
+        WHAT WE OFFER
+    </div>
+
+    <h2>
+        Travel With <span>Comfort</span>
+    </h2>
+
+    <p>
+        From airport pickups to Umrah transportation,
+        we provide convenient and comfortable travel
+        solutions for every journey.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     SERVICES
+===================================== -->
+
+<section class="services">
+
+    <div class="services-container">
+
+
+        <!-- 01 -->
+
+        <div class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop"
+                alt="Airport Transfer">
+
+                <div class="image-dark"></div>
+
+                <div class="service-icon">
+                    ✈
+                </div>
+
+            </div>
+
+            <div class="service-content">
+
+                <span class="service-number">
+                    01
+                </span>
+
+                <h3>
+                    Airport Transfer
+                </h3>
+
+                <p>
+                    Comfortable and reliable transportation
+                    from Jeddah Airport and other airports
+                    to your hotel or destination.
+                </p>
+
+                <a href="contact.html"
+                   class="service-link">
+
+                    Book Now →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 02 -->
+
+        <div class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000&auto=format&fit=crop"
+                alt="Hotel Transfer">
+
+                <div class="image-dark"></div>
+
+                <div class="service-icon">
+                    🏨
+                </div>
+
+            </div>
+
+            <div class="service-content">
+
+                <span class="service-number">
+                    02
+                </span>
+
+                <h3>
+                    Hotel Transfer
+                </h3>
+
+                <p>
+                    Easy hotel pickup and drop-off service
+                    for individuals, families and groups.
+                </p>
+
+                <a href="contact.html"
+                   class="service-link">
+
+                    Book Now →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 03 -->
+
+        <div class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop"
+                alt="Umrah Transport">
+
+                <div class="image-dark"></div>
+
+                <div class="service-icon">
+                    🕋
+                </div>
+
+            </div>
+
+            <div class="service-content">
+
+                <span class="service-number">
+                    03
+                </span>
+
+                <h3>
+                    Umrah Transport
+                </h3>
+
+                <p>
+                    Dedicated transportation for Umrah
+                    pilgrims with comfortable vehicles
+                    and dependable service.
+                </p>
+
+                <a href="contact.html"
+                   class="service-link">
+
+                    Book Now →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 04 -->
+
+        <div class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1000&auto=format&fit=crop"
+                alt="Ziyarat Service">
+
+                <div class="image-dark"></div>
+
+                <div class="service-icon">
+                    🕌
+                </div>
+
+            </div>
+
+            <div class="service-content">
+
+                <span class="service-number">
+                    04
+                </span>
+
+                <h3>
+                    Ziyarat Service
+                </h3>
+
+                <p>
+                    Visit important Islamic and historical
+                    places around Makkah and Madinah
+                    comfortably.
+                </p>
+
+                <a href="tours.html"
+                   class="service-link">
+
+                    Explore Tours →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 05 -->
+
+        <div class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1543332164-6e82f355badc?q=80&w=1000&auto=format&fit=crop"
+                alt="Family Transport">
+
+                <div class="image-dark"></div>
+
+                <div class="service-icon">
+                    👨‍👩‍👧‍👦
+                </div>
+
+            </div>
+
+            <div class="service-content">
+
+                <span class="service-number">
+                    05
+                </span>
+
+                <h3>
+                    Family Transport
+                </h3>
+
+                <p>
+                    Spacious and comfortable transportation
+                    for families and larger groups.
+                </p>
+
+                <a href="contact.html"
+                   class="service-link">
+
+                    Book Now →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 06 -->
+
+        <div class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1000&auto=format&fit=crop"
+                alt="VIP Taxi">
+
+                <div class="image-dark"></div>
+
+                <div class="service-icon">
+                    ★
+                </div>
+
+            </div>
+
+            <div class="service-content">
+
+                <span class="service-number">
+                    06
+                </span>
+
+                <h3>
+                    VIP Taxi Service
+                </h3>
+
+                <p>
+                    Premium private transportation for
+                    guests who prefer extra comfort
+                    and privacy.
+                </p>
+
+                <a href="contact.html"
+                   class="service-link">
+
+                    Book Now →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     WHY CHOOSE US
+===================================== -->
+
+<section class="why">
+
+    <div class="why-title">
+
+        <div class="section-label">
+            WHY CHOOSE US
+        </div>
+
+        <h2>
+            Your Journey,
+            <span>Our Priority</span>
+        </h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                ✓
+            </div>
+
+            <h3>
+                Safe Travel
+            </h3>
+
+            <p>
+                Your safety and comfort are our
+                priority throughout every journey.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🚕
+            </div>
+
+            <h3>
+                Clean Vehicles
+            </h3>
+
+            <p>
+                Comfortable and well-maintained
+                vehicles for a pleasant experience.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                ⏰
+            </div>
+
+            <h3>
+                24/7 Service
+            </h3>
+
+            <p>
+                Available day and night to help
+                you reach your destination.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                $
+            </div>
+
+            <h3>
+                Fair Pricing
+            </h3>
+
+            <p>
+                Reliable transportation with
+                reasonable and transparent pricing.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     BOOKING
+===================================== -->
+
+<section class="booking">
+
+    <div class="booking-content">
+
+        <small>
+            READY TO TRAVEL?
+        </small>
+
+        <h2>
+            Book Your Ride
+            <span>Today</span>
+        </h2>
+
+        <p>
+            Contact us directly and tell us your
+            pickup location, destination and
+            travel date.
+        </p>
+
+        <div class="buttons">
+
+            <a
+            href="https://wa.me/966552414804?text=Hello%20I%20would%20like%20to%20book%20a%20taxi."
+            target="_blank"
+            class="whatsapp-button">
+
+                WhatsApp Us
+
+            </a>
+
+            <a
+            href="contact.html"
+            class="contact-button">
+
+                Contact Us
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-about">
+
+            <h2>
+                MAKKAH <span>TAXI</span>
+            </h2>
+
+            <p>
+                Reliable, comfortable and safe taxi
+                service for Makkah, Madinah, Jeddah,
+                Taif and surrounding destinations.
+            </p>
+
+             <div class="social">
+
+                <a
+                    href="https://wa.me/966552414804"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h3 class="footer-title">
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+             <a href="fleet.html">
+                    Vehicles
+                </a>
+
+            <a href="tours.html">
+                Ziyarat & Tours
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h3 class="footer-title">
+                Our Services
+            </h3>
+
+            <a href="services.html">
+                Airport Transfer
+            </a>
+
+            <a href="services.html">
+                Hotel Transfer
+            </a>
+
+            <a href="services.html">
+                Umrah Transport
+            </a>
+
+            <a href="services.html">
+                Ziyarat Service
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+            <h3 class="footer-title">
+                Contact
+            </h3>
+
+            <p>
+                <strong>Location:</strong>
+                Makkah, Saudi Arabia
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                +966 55 241 4804
+            </p>
+
+            <p>
+                <strong>Availability:</strong>
+                24/7
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            © 2026 Makkah Taxi Service.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Your Journey • Our Priority
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================
+     FLOATING WHATSAPP
+===================================== -->
+
+<a
+    href="https://wa.me/966552414804?text=Hello%20I%20would%20like%20to%20book%20a%20taxi."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-whatsapp"
+    aria-label="Book a taxi on WhatsApp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+    function toggleMenu() {
+
+        document
+        .getElementById("navLinks")
+        .classList
+        .toggle("show");
+
+    }
+
+
+    /* Scroll animation */
+
+    const cards =
+        document.querySelectorAll(".service-card");
+
+
+    const observer =
+        new IntersectionObserver(
+
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                        .classList
+                        .add("show");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
+
+
+    cards.forEach(function(card) {
+
+        observer.observe(card);
+
+    });
+
+</script>
+
+
+</body>
+</html>
